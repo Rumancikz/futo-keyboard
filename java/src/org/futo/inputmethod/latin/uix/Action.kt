@@ -69,6 +69,8 @@ interface KeyboardManagerForAction {
 
     fun triggerSystemVoiceInput()
 
+    fun switchToInputMethod(imeId: String)
+
     fun getThemeProvider(): DynamicThemeProvider
 
     fun sendCodePointEvent(codePoint: Int)

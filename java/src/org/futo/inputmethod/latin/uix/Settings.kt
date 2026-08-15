@@ -374,6 +374,20 @@ val USE_SYSTEM_VOICE_INPUT = SettingsKey(
     default = false
 )
 
+val USE_CHEEP_VOICE_INPUT = SettingsKey(
+    key = booleanPreferencesKey("useCheepVoiceInput"),
+    default = true
+)
+
+// IME id of the cheep-board STT keyboard (applicationId/service of com.cheep.board)
+const val CHEEP_BOARD_IME_ID = "com.cheep.board/com.cheep.board.CheepKeyboardService"
+
+// Keyboard the microphone key routes to when external voice input is enabled
+val VOICE_INPUT_IME_ID = SettingsKey(
+    key = stringPreferencesKey("voiceInputImeId"),
+    default = CHEEP_BOARD_IME_ID
+)
+
 val USE_TRANSFORMER_FINETUNING = SettingsKey(
     key = booleanPreferencesKey("useTransformerFinetuning2"),
     default = false

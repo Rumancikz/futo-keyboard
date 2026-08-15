@@ -40,6 +40,7 @@ import org.futo.inputmethod.latin.uix.ResourceHelper
 import org.futo.inputmethod.latin.uix.USE_PERSONAL_DICT
 import org.futo.inputmethod.latin.uix.USE_VAD_AUTOSTOP
 import org.futo.inputmethod.latin.uix.VERBOSE_PROGRESS
+import org.futo.inputmethod.latin.uix.VOICE_INPUT_IME_ID
 import org.futo.inputmethod.latin.uix.getSetting
 import org.futo.inputmethod.latin.uix.setSetting
 import org.futo.inputmethod.latin.uix.settings.SettingsActivity
@@ -70,6 +71,17 @@ val SystemVoiceInputAction = Action(
     persistentState = null,
     windowImpl = null,
     shownInEditor = false
+)
+
+
+val CheepBoardAction = Action(
+    icon = R.drawable.mic_fill,
+    name = R.string.action_cheep_board_title,
+    simplePressImpl = { it, _ ->
+        it.switchToInputMethod(it.getContext().getSetting(VOICE_INPUT_IME_ID))
+    },
+    persistentState = null,
+    windowImpl = null,
 )
 
 

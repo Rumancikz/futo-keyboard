@@ -51,6 +51,10 @@
     <string name="action_voice_input_no_model_for_language_x_installed">No voice input model installed for <xliff:g name="language" example="español">%s</xliff:g>, tap to check options?</string>
     <string name="action_voice_input_open_settings_button_to_grant_microphone_permission">Please go to Permissions, and enable Microphone permission to use voice input</string>
 
+    <!-- For cheep-board voice input action -->
+    <string name="action_cheep_board_title">cheep-board</string>
+    <string name="action_cheep_board_not_available">Voice input keyboard is not installed or not enabled</string>
+
     <!-- For clipboard manager action -->
     <string name="action_clipboard_manager_title">Clipboard Manager</string>
     <string name="action_clipboard_manager_unpin_item">Unpin item</string>
@@ -572,6 +576,10 @@
     <string name="voice_input_settings_builtin_disabled_notice">Built-in voice input is disabled!</string>
     <string name="voice_input_settings_disable_builtin_voice_input">Disable built-in voice input</string>
     <string name="voice_input_settings_disable_builtin_voice_input_subtitle">Use voice input provided by external app</string>
+    <string name="voice_input_settings_use_cheep_board">Use external voice input</string>
+    <string name="voice_input_settings_use_cheep_board_subtitle">Route the microphone key to an external voice input keyboard instead of the built-in recognizer</string>
+    <string name="voice_input_settings_target_keyboard">Voice input keyboard</string>
+    <string name="voice_input_settings_target_keyboard_none">No other keyboards are enabled. Enable one in system settings (Settings > Languages &amp; input > On-screen keyboards).</string>
     <string name="voice_input_settings_indication_sounds">Indication sounds</string>
     <string name="voice_input_settings_indication_sounds_subtitle">Play a short sound on start and cancel</string>
     <string name="voice_input_settings_verbose_progress">Verbose progress</string>

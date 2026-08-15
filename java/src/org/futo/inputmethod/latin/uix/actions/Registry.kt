@@ -12,6 +12,7 @@ import org.futo.inputmethod.latin.settings.Settings
 import org.futo.inputmethod.latin.uix.Action
 import org.futo.inputmethod.latin.uix.PreferenceUtils
 import org.futo.inputmethod.latin.uix.SettingsKey
+import org.futo.inputmethod.latin.uix.USE_CHEEP_VOICE_INPUT
 import org.futo.inputmethod.latin.uix.USE_SYSTEM_VOICE_INPUT
 import org.futo.inputmethod.latin.uix.actions.clipboard.ClipboardHistoryAction
 import org.futo.inputmethod.latin.uix.actions.fonttyper.FontTyperAction
@@ -43,6 +44,8 @@ val AllActionsMap = mapOf(
     "left" to ArrowLeftAction,
     "right" to ArrowRightAction,
     "font_typer" to FontTyperAction,
+    // Appended last: action indices must stay stable (see note above the map)
+    "cheep_board" to CheepBoardAction,
 )
 
 val ActionToId = AllActionsMap.entries.associate { it.value to it.key }
@@ -70,11 +73,15 @@ private fun List<Action>.verifyNamesAreUnique(): List<Action> {
 object ActionRegistry {
     suspend fun getActionOverride(context: Context, action: Action): Action {
         return if(action == VoiceInputAction || action == SystemVoiceInputAction) {
-            val useSystemVoiceInput = context.getSetting(USE_SYSTEM_VOICE_INPUT)
-            if(useSystemVoiceInput) {
-                SystemVoiceInputAction
+            if(context.getSetting(USE_CHEEP_VOICE_INPUT)) {
+                CheepBoardAction
             } else {
-                VoiceInputAction
+                val useSystemVoiceInput = context.getSetting(USE_SYSTEM_VOICE_INPUT)
+                if(useSystemVoiceInput) {
+                    SystemVoiceInputAction
+                } else {
+                    VoiceInputAction
+                }
             }
         } else {
             action

@@ -399,6 +399,14 @@ class UixActionKeyboardManager(val uixManager: UixManager, val latinIME: LatinIM
         )
     }
 
+    override fun switchToInputMethod(imeId: String) {
+        try {
+            latinIME.switchInputMethod(imeId)
+        } catch (e: RuntimeException) {
+            Toast.makeText(latinIME, R.string.action_cheep_board_not_available, Toast.LENGTH_SHORT).show()
+        }
+    }
+
     override fun getThemeProvider(): DynamicThemeProvider {
         return latinIME.getDrawableProvider()
     }
